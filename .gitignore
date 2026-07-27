@@ -1,0 +1,39 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Tools cache
+.pytest_cache/
+.ruff_cache/
+
+# MewCode runtime data
+.mewcode/
+.mewcode.yaml
+
+# Claude Code
+.claude/
+
+# Debug / test artifacts
+logs/
+testChat/
+test_executor_out.txt
+_bigfile_for_test.txt
+
+# Docs, specs, tests — not yet ready for git
+ch02_LLMs/
+ch03_Tools/
+ch04_Loop/
+ch05_Prompt/
+ch06_Permission/
+ch07_MCP/
+ch08_Context/
+ch09_Memory/
+ch10_Cmd/
+tests/
+chatbox/
+diagnose_autocomplete.py
+CLAUDE.md
+
+# OS
+Thumbs.db
