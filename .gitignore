@@ -7,9 +7,9 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 
-# MewCode runtime data
-.mewcode/
-.mewcode.yaml
+# Cheeseball runtime data
+.cheeseball/
+.cheeseball.yaml
 
 # Claude Code
 .claude/

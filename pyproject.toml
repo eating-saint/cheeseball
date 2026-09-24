@@ -3,7 +3,7 @@ requires = ["setuptools>=64.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mewcode"
+name = "cheeseball"
 version = "0.1.0"
 description = "命令行 AI 助手，支持多 LLM 后端流式对话"
 readme = "README.md"
@@ -18,10 +18,10 @@ dependencies = [
 ]
 
 [project.scripts]
-mewcode = "mewcode.main:main"
+cheeseball = "cheeseball.main:main"
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 
 [tool.setuptools.packages.find]
-include = ["mewcode*"]
+include = ["cheeseball*"]
