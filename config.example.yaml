@@ -1,0 +1,16 @@
+# 复制本文件为 ~/.cheeseball/config.yaml，并把 api_key 替换成你自己的 Key。
+#   Windows:      C:\Users\<你>\.cheeseball\config.yaml
+#   macOS/Linux:  ~/.cheeseball/config.yaml
+default_provider: deepseek-ant
+
+providers:
+  deepseek:
+    protocol: openai
+    model: deepseek-chat
+    base_url: https://api.deepseek.com
+    api_key: "sk-YOUR_API_KEY_HERE"
+  deepseek-ant:
+    protocol: anthropic
+    model: deepseek-chat
+    base_url: https://api.deepseek.com/anthropic
+    api_key: "sk-YOUR_API_KEY_HERE"
