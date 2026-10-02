@@ -1,5 +1,93 @@
 # cheeseball
 
+A command-line AI assistant that supports streaming chat and tool calling across multiple LLM backends. Built on [Textual](https://textual.textualize.io/) TUI, `httpx`, and `mcp`, with built-in tools for file read/write, search, and command execution.
+
+## Quick Start
+
+### 1. Install
+
+```bash
+git clone https://github.com/eating-saint/cheeseball.git
+cd cheeseball
+pip install -e .          # installs textual / httpx / mcp / pyyaml / rich automatically
+```
+
+> Requires Python ≥ 3.10.
+
+### 2. Configure your API key
+
+Create a config file in your home directory (the program reads from here by default):
+
+| Platform | Path |
+|---|---|
+| Windows | `C:\Users\<you>\.cheeseball\config.yaml` |
+| macOS / Linux | `~/.cheeseball/config.yaml` |
+
+Start from the bundled template:
+
+```bash
+mkdir -p ~/.cheeseball
+cp config.example.yaml ~/.cheeseball/config.yaml
+```
+
+Then edit it and replace `api_key` with your own key (e.g. a DeepSeek `sk-...`).
+
+### 3. Run
+
+```bash
+cheeseball
+```
+
+## Configuration
+
+Structure of `~/.cheeseball/config.yaml`:
+
+```yaml
+default_provider: deepseek-ant          # default provider to use
+providers:
+  deepseek:
+    protocol: openai                    # openai or anthropic
+    model: deepseek-chat
+    base_url: https://api.deepseek.com
+    api_key: "your key"
+  deepseek-ant:
+    protocol: anthropic
+    model: deepseek-chat
+    base_url: https://api.deepseek.com/anthropic
+    api_key: "your key"
+```
+
+Fields:
+
+- `default_provider`: name of the default provider
+- `protocol`: `openai` or `anthropic`
+- `model`: model name
+- `base_url`: API endpoint
+- `api_key`: authentication key
+- `context_window` (optional): context window size; defaults to the protocol default if omitted
+
+## Optional: MCP tools
+
+Place a `.cheeseball.yaml` in the project directory to register MCP servers. Example (GitHub MCP, requires the `GITHUB_TOKEN` environment variable):
+
+```yaml
+mcp_servers:
+  github:
+    type: stdio
+    command: npx
+    args: ["-y", "@modelcontextprotocol/server-github"]
+    env:
+      GITHUB_PERSONAL_ACCESS_TOKEN: ${GITHUB_TOKEN}
+```
+
+## License
+
+MIT
+
+---
+
+# cheeseball（中文）
+
 命令行 AI 助手，支持多 LLM 后端流式对话与工具调用。基于 [Textual](https://textual.textualize.io/) TUI、`httpx` 与 `mcp`，内置文件读写/搜索/命令执行等工具。
 
 ## 快速开始
